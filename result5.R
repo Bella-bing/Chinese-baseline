@@ -204,15 +204,12 @@ forestplot(labeltext = as.matrix(Lc_OR_melt_merge[,c(3,9)]),
            xlog = TRUE,
            graphwidth = unit(0.3,"npc"),
            col=fpColors(box="royalblue",line="darkblue"),
-           #fpTxtGp函数中的cex参数设置各个组件的大小
            txt_gp=fpTxtGp(label=gpar(cex=0.8),
                           ticks=gpar(cex=0.8),
                           xlab=gpar(cex = 1.2),
                           title=gpar(cex = 1.2)),
-           #箱线图中基准线的位置
            cex=0.9, lineheight = "auto",
            colgap=unit(8,"mm"),
-           #箱线图两端添加小竖线，高度
            ci.vertices=TRUE, ci.vertices.height = 0.2)
 
 
@@ -232,15 +229,12 @@ forestplot(labeltext = as.matrix(Li_OR_melt_merge[,c(3,9)]),
            xlog = TRUE,
            graphwidth = unit(0.3,"npc"),
            col=fpColors(box="royalblue",line="darkblue"),
-           #fpTxtGp函数中的cex参数设置各个组件的大小
            txt_gp=fpTxtGp(label=gpar(cex=0.8),
                           ticks=gpar(cex=0.8),
                           xlab=gpar(cex = 1.2),
                           title=gpar(cex = 1.2)),
-           #箱线图中基准线的位置
            cex=0.9, lineheight = "auto",
            colgap=unit(8,"mm"),
-           #箱线图两端添加小竖线，高度
            ci.vertices=TRUE, ci.vertices.height = 0.2)
 
 Lj_OR_melt_merge = read.delim('other_results/gene_heatmap/L.jensenii_OR_total.txt',na.strings = "")
@@ -258,15 +252,12 @@ forestplot(labeltext = as.matrix(Lj_OR_melt_merge[,c(3,9)]),
            xlog = TRUE,
            graphwidth = unit(0.3,"npc"),
            col=fpColors(box="royalblue",line="darkblue"),
-           #fpTxtGp函数中的cex参数设置各个组件的大小
            txt_gp=fpTxtGp(label=gpar(cex=0.8),
                           ticks=gpar(cex=0.8),
                           xlab=gpar(cex = 1.2),
                           title=gpar(cex = 1.2)),
-           #箱线图中基准线的位置
            cex=0.9, lineheight = "auto",
            colgap=unit(8,"mm"),
-           #箱线图两端添加小竖线，高度
            ci.vertices=TRUE, ci.vertices.height = 0.2)
 
 
@@ -285,14 +276,11 @@ forestplot(labeltext = as.matrix(Gv1_OR_melt_merge[,c(3,9)]),
            xlog = TRUE,
            graphwidth = unit(0.3,"npc"),
            col=fpColors(box="royalblue",line="darkblue"),
-           #fpTxtGp函数中的cex参数设置各个组件的大小
            txt_gp=fpTxtGp(label=gpar(cex=0.8),
                           ticks=gpar(cex=0.8),
                           xlab=gpar(cex = 1.2),
                           title=gpar(cex = 1.2)),
-           #箱线图中基准线的位置
            cex=0.9, lineheight = "auto",
            colgap=unit(8,"mm"),
-           #箱线图两端添加小竖线，高度
            ci.vertices=TRUE, ci.vertices.height = 0.2)
 

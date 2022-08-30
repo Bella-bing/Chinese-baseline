@@ -263,8 +263,8 @@ boxplot_taxa_func <- function(CST_species_list, cst){
                     color = "group", palette = "jama"
                     #add = "jitter"
   )
-  # palette可以按照期刊选择相应的配色，如"npg"等
-  pcst_boxp = pcst + stat_compare_means(aes(group = group),method = "wilcox.test", label = "p.signif") +
+  
+pcst_boxp = pcst + stat_compare_means(aes(group = group),method = "wilcox.test", label = "p.signif") +
     labs(x='Species', y='Relative Abundance (%)') +
     theme(axis.text.x = element_text(angle = 30, hjust = 1,size = 10))
   return(pcst_boxp)

@@ -172,15 +172,12 @@ forestplot(labeltext = as.matrix(CST2_OR_melt_merge[,c(3,9)]),
            xlog = TRUE,
            graphwidth = unit(0.3,"npc"),
            col=fpColors(box="royalblue",line="darkblue"),
-           #fpTxtGp函数中的cex参数设置各个组件的大小
            txt_gp=fpTxtGp(label=gpar(cex=0.8),
                           ticks=gpar(cex=0.8),
                           xlab=gpar(cex = 1.2),
                           title=gpar(cex = 1.2)),
-           #箱线图中基准线的位置
            cex=0.9, lineheight = "auto",
            colgap=unit(8,"mm"),
-           #箱线图两端添加小竖线，高度
            ci.vertices=TRUE, ci.vertices.height = 0.2)
 
 ### CST IV
@@ -207,15 +204,12 @@ forestplot(labeltext = as.matrix(CST4_OR_melt_merge[,c(3,9)]),
            xlog = TRUE,
            graphwidth = unit(0.3,"npc"),
            col=fpColors(box="royalblue",line="darkblue"),
-           #fpTxtGp函数中的cex参数设置各个组件的大小
            txt_gp=fpTxtGp(label=gpar(cex=0.8),
                           ticks=gpar(cex=0.8),
                           xlab=gpar(cex = 1.2),
                           title=gpar(cex = 1.2)),
-           #箱线图中基准线的位置
            cex=0.9, lineheight = "auto",
            colgap=unit(8,"mm"),
-           #箱线图两端添加小竖线，高度
            ci.vertices=TRUE, ci.vertices.height = 0.2)
 
 
@@ -243,15 +237,12 @@ forestplot(labeltext = as.matrix(CST5_OR_melt_merge[,c(3,9)]),
            xlog = TRUE,
            graphwidth = unit(0.3,"npc"),
            col=fpColors(box="royalblue",line="darkblue"),
-           #fpTxtGp函数中的cex参数设置各个组件的大小
            txt_gp=fpTxtGp(label=gpar(cex=0.8),
                           ticks=gpar(cex=0.8),
                           xlab=gpar(cex = 1.2),
                           title=gpar(cex = 1.2)),
-           #箱线图中基准线的位置
            cex=0.9, lineheight = "auto",
            colgap=unit(8,"mm"),
-           #箱线图两端添加小竖线，高度
            ci.vertices=TRUE, ci.vertices.height = 0.2)
 
 
@@ -356,7 +347,7 @@ ggsave(p_rda, filename ='plot/RDA_plot.png',width = 10, height = 7)
 
 rda.perm=permutest(rda_tb,permu=999)
 rda.perm
-## 检查每个环境因子与群落变化的相关性
+## Check the associtation bewteen environment and taxa 
 rda.env=envfit(rda_tb,env,permu=999)
 rda_pvalue =  rda.env$vectors            
 

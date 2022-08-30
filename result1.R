@@ -1,6 +1,5 @@
 #### result1: summary if study Chinese cohort #####
 library(vioplot)
-setwd('/Users/liangbingbing/Documents/turing/3.bioinformatics/1.project/1.wanren_xiehe/10.文章/10家医院数据文章/文章1-中美比对/rscript')
 set.seed(123)
 
 qbm_mNGS_rename_clean_batch_filter_factor = read.delim('qbm_mNGS_English_filter_questionaire_917s.txt')
