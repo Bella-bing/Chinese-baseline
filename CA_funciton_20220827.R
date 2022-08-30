@@ -77,27 +77,27 @@ func_pheatmap <- function(tax_df, group_df, taxa_anno_df){
   #)
   #ann_colors=list(Group=c(XJ="#EE7AE9",YN="#00447E",Cr="#F34800"))
   pheatmap(as.matrix(tax_df) , 
-           scale = "none", #对行归一化 
-           show_rownames=T, #显示行名-基因名
-           cluster_rows=F, #是否对列进行聚类
-           cluster_cols=T, #是否对行进行聚类
-           #treeheight_row = 15, #调整纵向数的高度
-           #annotation_row=taxa_anno_df, ##将行分组信息加入到列注释信息,如taxa的注释
-           annotation_col=group_df, #将列分组信息加入到列注释信息
-           clustering_distance_rows = "correlation", #聚类线长度优化
+           scale = "none",  
+           show_rownames=T, 
+           cluster_rows=F, 
+           cluster_cols=T, 
+           #treeheight_row = 15, 
+           #annotation_row=taxa_anno_df, 
+           annotation_col=group_df, 
+           clustering_distance_rows = "correlation", 
            clustering_distance_cols = "maximum",
            #color = colorRampPalette(c("yellow", "blue", "red"))(11),
-           #annotation_colors=ann_colors, #给注释条块的颜色赋值
-           #cutree_rows=5, #按聚类树将所有行分为5组
-           #cellheight=2,cellwidth=8)#每个各自的大小
-           #fontsize_col=6, #列名的字号
+           #annotation_colors=ann_colors, 
+           #cutree_rows=5, 
+           #cellheight=2,cellwidth=8),
+           #fontsize_col=6, 
            border_color=NA,
-           #annotation_names_row=T, #因为taxa anno的名字太长,设置给隐藏掉
+           #annotation_names_row=T, 
            show_colnames = F,
-           fontsize_row = 10, #行名的字号
+           fontsize_row = 10, 
            fontsize_annotation=8 )
-  #main = "HSPs")#命名主标题
-  #filename="heatmap_HSPs_new.png") #可保存为File type should be: pdf, png, bmp, jpg, tiff
+  #main = "HSPs")
+  #filename="heatmap_HSPs_new.png") #save image. File type should be: pdf, png, bmp, jpg, tiff
 }
 
 heatmap_filter_plot_func <- function(abd_per_df, group, taxa_anno){
@@ -158,25 +158,16 @@ gene_heatmap_func <- function(gene_d, group_df,file_name, tree_k){
     #Lactobacillus = c("#FEE0D2", "#FC9272", "#DE2D26")
   )
   gene_heatmap = pheatmap(matrix_data , 
-                          scale = "none", #对行归一化 
-                          show_rownames=F, #显示行名-基因名
-                          cluster_rows=gene_hclust, #是否对行进行聚类
-                          cluster_cols=sample_hclust, #是否对列进行聚类
-                          #cluster_cols=F,
+                          scale = "none", 
+                          show_rownames=F, 
+                          cluster_rows=gene_hclust, 
+                          cluster_cols=sample_hclust, 
                           color = colorRampPalette(colors = c("white","darkblue"))(100),
-                          #treeheight_row = 15, #调整纵向数的高度
-                          #annotation_row=group_df['group_row'], ##将行分组信息加入到列注释信息,如taxa的注释
-                          annotation_col=group_df_2[-1], #将列分组信息加入到列注释信息
-                          #clustering_distance_rows = "correlation", #聚类线长度优化
-                          #clustering_distance_cols = "maximum",
-                          annotation_colors=ann_colors, #给注释条块的颜色赋值
-                          #cutree_rows=5, #按聚类树将所有行分为5组
-                          #cellheight=2,cellwidth=8)#每个各自的大小
-                          #fontsize_col=6, #列名的字号
+                          annotation_col=group_df_2[-1], 
+                          annotation_colors=ann_colors, 
                           border_color=NA,
-                          #annotation_names_row=T, #因为taxa anno的名字太长,设置给隐藏掉
                           show_colnames = F,
-                          fontsize_row = 10, #行名的字号
+                          fontsize_row = 10, 
                           fontsize_annotation=8 ,
                           filename=file_name, width=10, height = 4)
   return(sample_regroup)
@@ -247,10 +238,10 @@ taxa_subgroup_multinom_func <- function(taxa_subgroup_meta, ingroup_info_CST_mul
   row.names(taxa_subgroup_meta) = taxa_subgroup_meta$sample_id
   taxa_multinom =  multinom(group ~ . , data = taxa_subgroup_meta_new[-1])
   summary(taxa_multinom)
-  taxa_OR=round(exp(coef(taxa_multinom)),2) #计算OR 
-  taxa_OR95 = as.data.frame(round(exp(confint(taxa_multinom)),2)) #计算OR的95%CI
+  taxa_OR=round(exp(coef(taxa_multinom)),2) # OR value
+  taxa_OR95 = as.data.frame(round(exp(confint(taxa_multinom)),2)) #calculate OR的95%CI
   taxa_OR95$factors = row.names(taxa_OR95)
-  # 计算p value
+  # p value
   taxa_z <- summary(taxa_multinom)$coefficients/summary(taxa_multinom)$standard.errors
   taxa_p <-round(((1 - pnorm(abs(taxa_z), 0, 1)) * 2),5)
   taxa_OR_melt = melt(taxa_OR)
